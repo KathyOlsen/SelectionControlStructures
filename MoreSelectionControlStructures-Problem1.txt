@@ -1,0 +1,58 @@
+Problem 1 - Process Customer Record
+
+Declare String customer_name
+Declare Real purchase_amount
+Declare Integer tax_code
+Declare Real sales_tax
+Declare Real total_due
+Declare Real tax_rate
+
+Prompt user for customer_name
+Prompt user for purchase_amount
+Prompt user for numeric tax_code 
+
+Get user inputs
+
+Switch(tax_code)
+	case 0 //tax exempt
+		tax_rate = 0.00
+	case 1 //state sales tax only
+		tax_rate = 0.03
+	case 2 //federal and state sales tax
+		tax_rate = 0.05
+	case 3 //special sales tax
+		tax_rate = 0.07
+	Default 
+		tax_rate = 0.05
+		
+Calculate sales_tax = purchase_amount * tax_rate
+Calculate total_due = purchase_amount + sales_tax
+
+Display "Customer Name: " customer_name
+Display "Purchase Amount: $" purchase_amount
+Display "Sales Tax (" tax_rate "): $" sales_tax
+Display "Total Due: $" total_due
+
+//Test Data
+
+//Example 1
+User inputs: John Smith; $5.99; 3
+lines 16,23,24: tax_rate = 0.07
+line 28: sales_tax = 5.99 * 0.07 = 0.42
+line 29: total_due = 5.99 + 0.42 = 6.41
+lines 31-31: //Display output:
+	Customer Name: John Smith
+	Purchase Amount: $5.99
+	Sales Tax (0.07): $0.42
+	Total Due: $6.41
+	
+//Example 2
+User inputs: Jane Jones; $15.49; 1
+lines 16,19,20: tax_rate = 0.03
+line 28: sales_tax = 15.49 * 0.03 = 0.46
+line 29: total_due = 15.49 + 0.46 = 15.95
+lines 31-31: //Display output:
+	Customer Name: Jane Jones
+	Purchase Amount: $15.49
+	Sales Tax (0.03): $0.46
+	Total Due: $15.95

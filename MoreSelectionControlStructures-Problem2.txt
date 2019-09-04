@@ -1,0 +1,69 @@
+Problem 2 - Calculate Employee Pay
+
+Declare Long employeeID
+Declare Real pay_rate
+Declare Real hours_worked
+Declare Real weekly_pay
+
+Prompt user for employeeID
+
+Do 
+	Prompt user for pay_rate
+	Get pay_rate
+	While pay_rate < 0 or > 25
+		Display "Pay rate = " pay_rate " is out of range.  Please enter a value in range 0.00 - 25.00."
+
+Do
+	Prompt user for hours_worked
+	Get hours_worked
+	While hours_worked < 0 or > 60
+		Display "Hours worked = " hours_worked " is out of range.  Please enter a value in range 0.0 - 60.0."
+		
+If hours_worked <= 35
+	Calculate weekly_pay = hours_worked * pay_rate
+Else
+	Calculate weekly_pay = 35 * pay_rate + (hours_worked - 35) * pay_rate * 1.5
+	
+Display "Employee ID: " employeeID
+Display "Pay Rate: " pay_rate
+Display "Hours Worked: " hours_worked
+Display "Weekly Pay: " weekly_pay
+
+//Test Data
+
+//Example 1
+
+line 8: User input-employeeID: 12345
+lines 10-12: User input-pay_rate: 34.00
+line 13: pay_rate of 34.00 > 25.00
+line 14: Display: Pay rate = 34.00 is out of range.  Please enter a value in range 0.00 - 25.00.
+lines 11-12: User-input-pay_rate: 24.00
+line 13: pay_rate of 24.00 is not > 25.00
+lines 16-18: User input-hours_worked: 50.0
+line 19: hours_worked of 50.0 is not > 60.0
+line 22: hours_worked of 50.0 is not <= 35
+lines24-25: weekly_pay = 35 * 24.00 + (50.00 - 35) * 24.00 * 1.5 = 840.00 + 540.00 = 1,380.00
+lines 27-30: Display:
+	Employee ID: 12345
+	Pay Rate: 24.00
+	Hours Worked: 50.0
+	Weekly Pay: 1,380.00
+	
+//Example 2
+
+line 8: User input-employeeID: 23456
+lines 10-12: User input-pay_rate: 22.00
+line 13: pay_rate of 22.00 is not > 25.00
+lines 16-18: User input-hours_worked: 70.0
+line 19: hours_worked of 70.0 > 60.0
+line 20: Display: Hours worked = 70.00 is out of range.  Please enter a value in range 0.0 - 60.0.
+lines 16-18: User input-hours_worked: 20.0
+line 19: hours_worked of 20.0 is not > 60.0
+line 22: hours_worked of 20.0 <= 35
+line 23: weekly_pay = 20.0 * 22.00 = 440.00
+lines 27-30: Display:
+	Employee ID: 23456
+	Pay Rate: 22.00
+	Hours Worked: 20.0
+	Weekly Pay: 440.00
+		
